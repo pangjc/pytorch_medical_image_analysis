@@ -19,6 +19,7 @@ The confusion matrix for the validation dataset is shown below
 
 The goal for this part is to predict a bounding box containg heart in the above X-Ray images.
 
-The task can be formulated with a regression problem. Again the input is the image but the output is a 4d vector which defines the location of the heart (xmin, ymin, xmax, ymax).
+The task can be formulated with a regression problem. Again the input is the image but the output is a 4d vector which defines the location of the heart (xmin, ymin, xmax, ymax) as illustrated below.
 
 ![mia_detection](https://user-images.githubusercontent.com/6441064/225624864-b18069f5-cb77-499e-b10c-0337142580a1.png)
+
