@@ -8,7 +8,7 @@ from torchvision import transforms
 import data_setup, engine, model_builder, utils
 
 # Setup hyperparameters
-NUM_EPOCHS = 5
+NUM_EPOCHS = 30
 BATCH_SIZE = 32
 LEARNING_RATE = 0.0001
 
@@ -66,4 +66,4 @@ engine.train(model=model,
 # Save the model with help from utils.py
 utils.save_model(model=model,
                  target_dir="models",
-                 model_name="PneumoniaModel.pth")
+                 model_name="PneumoniaModel_m1max.pth")
