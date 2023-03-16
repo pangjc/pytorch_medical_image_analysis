@@ -1,6 +1,6 @@
 
 """
-Contains PyTorch model code to instantiate a TinyVGG model.
+Contains PyTorch model code to instantiate a resnet model.
 """
 import torch
 import torchvision
