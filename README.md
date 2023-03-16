@@ -10,7 +10,8 @@ The task is a typical binary classification problem with samples shown below. He
 
 ![mia_classification](https://user-images.githubusercontent.com/6441064/225622764-92f8eff7-39bd-4bed-b33b-1711f043235c.png)
 
-The code does not use handle imbalance issue for this dataset.  The resnet neural network is used for the algorithn. Cross entropy is used as the loss function and accuracy is used as a metric for evaluation.
+The code does not use handle imbalance issue for this dataset. The resnet neural network is used for the algorithn. Cross entropy is used as the loss function and accuracy is used as a metric for evaluation.
+
 The confusion matrix for the validation dataset is shown below
 
 ![mia_confusionMatrix](https://user-images.githubusercontent.com/6441064/225622827-099e1484-7e50-4f19-ba9f-0342a06bdbc5.png)
@@ -19,7 +20,7 @@ The confusion matrix for the validation dataset is shown below
 
 The goal for this part is to predict a bounding box containg heart in the above X-Ray images.
 
-The task can be formulated with a regression problem. Again the input is the image but the output is a 4d vector which defines the location of the heart (xmin, ymin, xmax, ymax) as illustrated below.
+The task can be formulated with a regression problem. Again the input is the image but the output is a 4d vector which defines the location of the heart (xmin, ymin, xmax, ymax) as illustrated below. Here the Mean Square Error is used as the loss function.
 
 ![mia_detection](https://user-images.githubusercontent.com/6441064/225624864-b18069f5-cb77-499e-b10c-0337142580a1.png)
 
