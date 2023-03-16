@@ -20,7 +20,7 @@ The confusion matrix for the validation dataset is shown below
 
 The goal for this part is to predict a bounding box containg heart in the above X-Ray images.
 
-The task can be formulated with a regression problem. Again the input is the image but the output is a 4d vector which defines the location of the heart (xmin, ymin, xmax, ymax) as illustrated below. Here the Mean Square Error is used as the loss function.
+The task can be formulated as a regression problem. Again the input is the image but the output is a 4d vector (xmin, ymin, xmax, ymax) which defines the location of the heart  as illustrated below. Here the Mean Square Error is used as the loss function.
 
 ![mia_detection](https://user-images.githubusercontent.com/6441064/225624864-b18069f5-cb77-499e-b10c-0337142580a1.png)
 
