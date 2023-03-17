@@ -28,5 +28,6 @@ The task can be formulated as a regression problem. Again the input is the image
 
 The goal for this part is to train a train a UNET structure model that segment atrium of a heart.  The input is the image and the output is an image with the same size indicating the object. 
 
-![segmentation](https://user-images.githubusercontent.com/6441064/225810217-1e78d444-85b3-4e2c-9bfd-23d4235a0d1d.png)
+![Screenshot 2023-03-17 at 5 22 53 PM](https://user-images.githubusercontent.com/6441064/226056148-06a63040-1c0f-47fe-99ed-4a8ded410a4c.png)
+
 
