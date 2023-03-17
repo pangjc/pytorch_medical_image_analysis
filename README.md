@@ -24,14 +24,19 @@ The task can be formulated as a regression problem. Again the input is the image
 
 ![mia_detection](https://user-images.githubusercontent.com/6441064/225624864-b18069f5-cb77-499e-b10c-0337142580a1.png)
 
+After training for 100 epochs, the MSE for the algorithm is ~40 indication the predicted bounding box are about 3~5 pixel off the ground truth.
+
 ## 2D Segmentation
 
 The goal for this part is to train a 2D UNET model that segment atrium of a heart.  The input is the image and the output is an image with the same size indicating the object. 
 
 ![Screenshot 2023-03-17 at 5 22 53 PM](https://user-images.githubusercontent.com/6441064/226056148-06a63040-1c0f-47fe-99ed-4a8ded410a4c.png)
 
+After training for 70 epochs, the algorithm can achieve a Dice value ~0.95. 
+
 ## 3D Segmentation
 
 Instead of performing segmentation for each 2D slice as above, the goal for this part is to train a 3D UNET model to segment atrium of a heart for the same 3D MR dataset as in the Section above.
+
 
 
