@@ -15,17 +15,25 @@ from data_setup import CardiacDataset
 
 
 # Setup hyperparameters
-NUM_EPOCHS = 5
+NUM_EPOCHS = 250
 BATCH_SIZE = 32
 LEARNING_RATE = 0.0001
 
 # Setup directories
+
+train_root_path = "/home/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/train/"
+train_subjects = "/home/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/train_subjects_det.npy"
+val_root_path = "/home/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/val/"
+val_subjects = "/home/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/val_subjects_det.npy"
+label_csv_file = "/home/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/rsna_heart_detection.csv"
+"""
+
 train_root_path = "/Users/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/train/"
 train_subjects = "/Users/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/train_subjects_det.npy"
 val_root_path = "/Users/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/val/"
 val_subjects = "/Users/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/val_subjects_det.npy"
 label_csv_file = "/Users/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/rsna_heart_detection.csv"
-
+"""
 # Setup target device: cuda, apple silicon, cpu
 device = (torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu'))
 if torch.backends.mps.is_available():
@@ -70,4 +78,4 @@ engine.train(model=model,
 # Save the model with help from utils.py
 utils.save_model(model=model,
                  target_dir="models",
-                 model_name="CardiacDetectionModel.pth")
+                 model_name="CardiacDetectionModel_rtx3090.pth")
