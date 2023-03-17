@@ -15,12 +15,12 @@ from data_setup import CardiacDataset
 
 
 # Setup hyperparameters
-NUM_EPOCHS = 250
-BATCH_SIZE = 32
+NUM_EPOCHS = 100
+BATCH_SIZE = 8
 LEARNING_RATE = 0.0001
 
 # Setup directories
-
+"""
 train_root_path = "/home/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/train/"
 train_subjects = "/home/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/train_subjects_det.npy"
 val_root_path = "/home/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/val/"
@@ -33,7 +33,7 @@ train_subjects = "/Users/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detecti
 val_root_path = "/Users/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/val/"
 val_subjects = "/Users/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/val_subjects_det.npy"
 label_csv_file = "/Users/pangjc/Dropbox/Pytorch_MIA/Data/Processed-Heart-Detection/rsna_heart_detection.csv"
-"""
+
 # Setup target device: cuda, apple silicon, cpu
 device = (torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu'))
 if torch.backends.mps.is_available():

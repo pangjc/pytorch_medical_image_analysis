@@ -1,3 +1,4 @@
+ 
 """
 Contains functions for training and testing a PyTorch model.
 """
@@ -39,10 +40,7 @@ def train_step(model: torch.nn.Module,
 
     # Loop through data loader data batches
     for batch, (X, y) in enumerate(dataloader):
-        print("X")
-        print(X.shape)
-        print("y")
-        print(y.shape)
+    
         # Send data to target device
         X, y = X.to(device), y.to(device)
 
@@ -155,23 +153,25 @@ def train(model: torch.nn.Module,
                                           loss_fn=loss_fn,
                                           optimizer=optimizer,
                                           device=device)
-        test_loss = test_step(model=model,
-          dataloader=test_dataloader,
-          loss_fn=loss_fn,
-          device=device)
+        ###test_loss = test_step(model=model,
+        ###  dataloader=test_dataloader,
+        ###  loss_fn=loss_fn,
+        ###  device=device)
 
         # Print out what's happening
         print(
           f"Epoch: {epoch+1} | "
           f"train_loss: {train_loss:.4f} | "
-          f"test_loss: {test_loss:.4f}"
+          ###f"test_loss: {test_loss:.4f}"
         )
 
         # Update results dictionary
         results["train_loss"].append(train_loss)
-        results["test_loss"].append(test_loss)
+        ###results["test_loss"].append(test_loss)
 
     # Return the filled results at the end of the epochs
     return results
+
+    
 
     
