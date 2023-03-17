@@ -12,7 +12,7 @@ import model_builder, engine, utils
 
 BATCH_SIZE = 32
 LEARNING_RATE = 1e-4
-NUM_EPOCHS = 20
+NUM_EPOCHS = 70
 
 # Create the dataset objects
 train_path = Path("/home/pangjc/Dropbox/Pytorch_MIA/Data/Task2/Preprocessed/train/")
