@@ -39,6 +39,10 @@ def train_step(model: torch.nn.Module,
 
     # Loop through data loader data batches
     for batch, (X, y) in enumerate(dataloader):
+        print("X")
+        print(X.shape)
+        print("y")
+        print(y.shape)
         # Send data to target device
         X, y = X.to(device), y.to(device)
 
@@ -99,10 +103,10 @@ def test_step(model: torch.nn.Module,
             X, y = X.to(device), y.to(device)
 
             # 1. Forward pass
-            test_pred_logits = model(X)
+            test_pred = model(X)
 
             # 2. Calculate and accumulate loss
-            loss = loss_fn(test_pred_logits, y)
+            loss = loss_fn(test_pred, y)
             test_loss += loss.item()
 
     # Adjust metrics to get average loss and accuracy per batch 
@@ -138,21 +142,11 @@ def train(model: torch.nn.Module,
     testing accuracy metrics. Each metric has a value in a list for 
     each epoch.
     In the form: {train_loss: [...],
-              train_acc: [...],
-              test_loss: [...],
-              test_acc: [...]} 
-    For example if training for epochs=2: 
-             {train_loss: [2.0616, 1.0537],
-              train_acc: [0.3945, 0.3945],
-              test_loss: [1.2641, 1.5706],
-              test_acc: [0.3400, 0.2973]} 
+              test_loss: [...]
+              }
     """
     # Create empty results dictionary
-    results = {"train_loss": [],
-               "train_acc": [],
-               "test_loss": [],
-               "test_acc": []
-    }
+    results = {"train_loss": [], "test_loss": []}
 
     # Loop through training and testing steps for a number of epochs
     for epoch in tqdm(range(epochs)):
