@@ -10,13 +10,13 @@ import numpy as np
 from data_setup import CardiacDataset
 import model_builder, engine, utils 
 
-BATCH_SIZE = 8
+BATCH_SIZE = 32
 LEARNING_RATE = 1e-4
-NUM_EPOCHS = 10
+NUM_EPOCHS = 20
 
 # Create the dataset objects
-train_path = Path("/Users/pangjc/Dropbox/Pytorch_MIA/Data/Task2/Preprocessed/train/")
-val_path = Path("/Users/pangjc/Dropbox/Pytorch_MIA/Data/Task2/Preprocessed/val")
+train_path = Path("/home/pangjc/Dropbox/Pytorch_MIA/Data/Task2/Preprocessed/train/")
+val_path = Path("/home/pangjc/Dropbox/Pytorch_MIA/Data/Task2/Preprocessed/val")
 
 ##train_path = Path("/Users/pangjc/Dropbox/Pytorch_MIA/Data/Task2/Preprocessed/train/")
 ##val_path = Path("/Users/pangjc/Dropbox/Pytorch_MIA/Data/Task2/Preprocessed/val")
