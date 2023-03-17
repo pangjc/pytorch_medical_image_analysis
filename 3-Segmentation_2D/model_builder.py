@@ -1,5 +1,20 @@
 import torch
 
+class DoubleConv(torch.nn.Module):
+    """
+    Helper Class which implements the intermediate Convolutions
+    """
+    def __init__(self, in_channels, out_channels):
+        
+        super().__init__()
+        self.step = torch.nn.Sequential(torch.nn.Conv2d(in_channels, out_channels, 3, padding=1),
+                                        torch.nn.ReLU(),
+                                        torch.nn.Conv2d(out_channels, out_channels, 3, padding=1),
+                                        torch.nn.ReLU())
+        
+    def forward(self, X):
+        return self.step(X)
+    
 class UNet(torch.nn.Module):
     def __init__(self):
         super().__init__()
@@ -43,3 +58,12 @@ class UNet(torch.nn.Module):
         
         ret = self.layer8(x7)
         return ret
+
+class AtriumSegmentation(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+        
+        self.model = UNet()
+        
+    def forward(self, data):
+        return torch.sigmoid(self.model(data))
