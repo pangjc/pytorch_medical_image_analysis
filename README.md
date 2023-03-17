@@ -1,6 +1,6 @@
 # pytorch_medical_image_analysis
 
-This repo aims to create a pytorch warehouse for (medical) image analysis consisting of classification, detection, segmentation (2D and 3D)
+This repo aims to create a pytorch warehouse for (medical) image analysis consisting of classification, detection, segmentation (2D and 3D). The codes/methods should be easily applied to other types of images due to the fact that all images are matrix storing intensity values. There might be special python packages need to be installed to handle the specific MRI or CT image format (i.e. dicom). 
 
 ## Classification
 
