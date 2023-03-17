@@ -12,7 +12,7 @@ def train_step(model: torch.nn.Module,
                dataloader: torch.utils.data.DataLoader, 
                loss_fn: torch.nn.Module, 
                optimizer: torch.optim.Optimizer,
-               device: torch.device) -> Tuple[float, float]:
+               device: torch.device):
     """Trains a PyTorch model for a single epoch.
 
     Turns a target PyTorch model to training mode and then
@@ -69,7 +69,7 @@ def train_step(model: torch.nn.Module,
 def test_step(model: torch.nn.Module, 
               dataloader: torch.utils.data.DataLoader, 
               loss_fn: torch.nn.Module,
-              device: torch.device) -> Tuple[float, float]:
+              device: torch.device):
     """Tests a PyTorch model for a single epoch.
 
     Turns a target PyTorch model to "eval" mode and then performs
@@ -99,14 +99,15 @@ def test_step(model: torch.nn.Module,
         for batch, (X, y) in enumerate(dataloader):
             # Send data to target device
             X, y = X.to(device), y.to(device)
-
+            y = y.type(torch.float32) ## only need for m1 max?
+    
             # 1. Forward pass
             test_pred = model(X)
-
+  
             # 2. Calculate and accumulate loss
             loss = loss_fn(test_pred, y)
             test_loss += loss.item()
-
+     
     # Adjust metrics to get average loss and accuracy per batch 
     test_loss = test_loss / len(dataloader)
     return test_loss
@@ -153,21 +154,22 @@ def train(model: torch.nn.Module,
                                           loss_fn=loss_fn,
                                           optimizer=optimizer,
                                           device=device)
-        ###test_loss = test_step(model=model,
-        ###  dataloader=test_dataloader,
-        ###  loss_fn=loss_fn,
-        ###  device=device)
+       
+        test_loss = test_step(model=model,
+          dataloader=test_dataloader,
+          loss_fn=loss_fn,
+          device=device)
 
         # Print out what's happening
         print(
           f"Epoch: {epoch+1} | "
           f"train_loss: {train_loss:.4f} | "
-          ###f"test_loss: {test_loss:.4f}"
+          f"test_loss: {test_loss:.4f}"
         )
 
         # Update results dictionary
         results["train_loss"].append(train_loss)
-        ###results["test_loss"].append(test_loss)
+        results["test_loss"].append(test_loss)
 
     # Return the filled results at the end of the epochs
     return results

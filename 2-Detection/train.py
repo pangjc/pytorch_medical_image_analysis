@@ -17,7 +17,7 @@ from data_setup import CardiacDataset
 # Setup hyperparameters
 NUM_EPOCHS = 100
 BATCH_SIZE = 8
-LEARNING_RATE = 0.0001
+LEARNING_RATE = 1e-4
 
 # Setup directories
 """
