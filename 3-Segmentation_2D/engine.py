@@ -5,7 +5,7 @@ Contains functions for training and testing a PyTorch model.
 from typing import Dict, List, Tuple
 
 import torch
-
+import datetime
 from tqdm.auto import tqdm
 
 class DiceLoss(torch.nn.Module):
@@ -180,6 +180,7 @@ def train(model: torch.nn.Module,
 
         # Print out what's happening
         print(
+          f"{datetime.datetime.now()} | "
           f"Epoch: {epoch+1} | "
           f"train_loss: {train_loss:.4f} | "
           f"test_loss: {test_loss:.4f}"
