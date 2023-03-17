@@ -10,3 +10,4 @@ Classification/03-Interpretability.ipynb
 1-Classification/03-Interpretability.ipynb
 *.ipynb
 *.pyc
+*.pth

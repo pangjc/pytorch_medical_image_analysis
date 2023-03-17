@@ -1,10 +1,10 @@
+
 from pathlib import Path
 import torch
 import numpy as np
 import pandas as pd
 import imgaug
 from imgaug.augmentables.bbs import BoundingBox
-
 
 class CardiacDataset(torch.utils.data.Dataset):
 
@@ -29,25 +29,19 @@ class CardiacDataset(torch.utils.data.Dataset):
         patient = self.patients[idx]
         # Get data according to index
         data = self.labels[self.labels["name"]==patient]
-        # Extract the patiendID (the filename)
-        patientId = data["name"].item()
         
         # Get entries of given patient
         # Extract coordinates
-        bbox = []
-
+        
         x_min = data["x0"].item()
-        bbox.append(x_min)
         y_min = data["y0"].item()
-        bbox.append(y_min)
         x_max = x_min + data["w"].item()  # get xmax from width
-        bbox.append(x_max)
         y_max = y_min + data["h"].item()  # get ymax from height
-        bbox.append(y_max)
+        bbox = [x_min, y_min, x_max, y_max]
 
 
         # Load file and convert to float32
-        file_path = self.root_path/str(patientId)  # Create the path to the file
+        file_path = self.root_path/patient  # Create the path to the file
         img = np.load(f"{file_path}.npy").astype(np.float32)
         
         
@@ -58,7 +52,8 @@ class CardiacDataset(torch.utils.data.Dataset):
             
             ###################IMPORTANT###################
             # Fix for https://discuss.pytorch.org/t/dataloader-workers-generate-the-same-random-augmentations/28830/2
-            random_seed = torch.randint(0, 1000000, (1,))[0].item()
+            # https://github.com/pytorch/pytorch/issues/5059
+            random_seed = torch.randint(0, 1000000, (1,)).item()
             imgaug.seed(random_seed)
             #####################################################
 
