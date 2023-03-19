@@ -24,7 +24,7 @@ The task can be formulated as a regression problem. Again the input is the image
 
 ![mia_detection](https://user-images.githubusercontent.com/6441064/225624864-b18069f5-cb77-499e-b10c-0337142580a1.png)
 
-After training for 100 epochs, the MSE for the algorithm is ~40 indication the predicted bounding box are about 3~5 pixel off the ground truth.
+After training for 100 epochs, the MSE for the algorithm is ~40 indication the predicted bounding box are about 3 ~ 5 pixel off the ground truth.
 
 ## 2D Segmentation
 
