@@ -11,3 +11,5 @@ Classification/03-Interpretability.ipynb
 *.ipynb
 *.pyc
 *.pth
+*.pt
+*.mp4
