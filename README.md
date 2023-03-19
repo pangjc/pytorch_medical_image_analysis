@@ -38,5 +38,9 @@ After training for 70 epochs, the algorithm can achieve a Dice value ~0.95.
 
 Instead of performing segmentation for each 2D slice as above, the goal for this part is to train a 3D UNET model to segment atrium of a heart for the same 3D MR dataset as in the Section above.
 
+The 3D unet model requires huge amount of VRAM. The general idea to overcome this challenge is "divide and conquer". The 3D data stack is devided into small cubes. The training is done per each cube first and then combined for the whole data stack. Torchio has specific module to handle the dividing and combining process. A demo result is shown below.
+
+https://user-images.githubusercontent.com/6441064/226150880-9deae18c-9556-4d1f-a5f4-0a2765fa8d99.mp4
+
 
 
